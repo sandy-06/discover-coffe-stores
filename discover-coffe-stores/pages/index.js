@@ -4,9 +4,24 @@ import styles from '../styles/Home.module.css'
 import Banner from '../components/banner';
 import Card from '../components/card';
 
-import coffeeStores from '../data/coffee-store.json';
+//import coffeeStoresData from '../data/coffee-store.json';
 
-export default function Home() {
+export async function getStaticProps(context) {
+
+  const response = await fetch(
+    "https://api.foursquare.com/v3/places/search?ll=32.21489448012478, -110.92363043479178&categories=13035&field=location "
+  )
+  const data = await response.json();
+   console.log(data);
+  return {
+    props:{
+      coffeeStores: data,
+    },
+  };
+}
+
+export default function Home(props) {
+  console.log('props');
   const handleOnBannerBtnClick = () => {
     console.log('hi banner button');
   }
@@ -28,18 +43,24 @@ export default function Home() {
             height={400}
             alt="hero image" />
         </div>
-        <div className={styles.cardLayout}>
-          {coffeeStores.map((coffeeStore) => {
-            return (
-              <Card
-                name={coffeeStore.name}
-                imgUrl={coffeeStore.imgUrl}
-                href={`/coffee-store/${coffeeStore.id}`}
-                className={styles.card}
-              />
-            );
-          })}
-        </div>
+        {props.coffeeStores.length > 0 && (
+          <>
+            <h2 className={styles.heading2}>Toronto Stores</h2>
+            <div className={styles.cardLayout}>
+              {props.coffeeStores.map((coffeeStore) => {
+                return (
+                  <Card
+                    key={coffeeStore.id}
+                    name={coffeeStore.name}
+                    imgUrl={coffeeStore.imgUrl}
+                    href={`/coffee-store/${coffeeStore.id}`}
+                    className={styles.card}
+                  />
+                );
+              })}
+            </div>
+          </>
+        )}
       </main>
     </div>
 
