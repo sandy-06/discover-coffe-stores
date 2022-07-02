@@ -1,5 +1,0 @@
-apple
-orchard
-banana
-cat
-dance

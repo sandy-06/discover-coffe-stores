@@ -1,5 +1,0 @@
-apple: barney
-orchard: marshall
-banana: ted
-cat: lily
-dance: robin
