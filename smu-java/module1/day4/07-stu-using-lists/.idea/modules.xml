@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/07-stu-using-lists.iml" filepath="$PROJECT_DIR$/.idea/07-stu-using-lists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/solved/UsingLists/UsingLists.iml" filepath="$PROJECT_DIR$/solved/UsingLists/UsingLists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/starter/UsingLists/UsingLists (1).iml" filepath="$PROJECT_DIR$/starter/UsingLists/UsingLists (1).iml" />
+    </modules>
+  </component>
+</project>
